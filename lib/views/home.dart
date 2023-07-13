@@ -101,6 +101,18 @@ class HomePage extends StatelessWidget {
                         Navigator.of(context).pushNamed('/exe6');
                       },
                     ),
+                    ListTile(
+                      title: const Text(
+                        'Exercicio 7',
+                        style: TextStyle(
+                          color: Colors.black26,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/exe7');
+                      },
+
+                    ),
                   ],
                 )
               ],
