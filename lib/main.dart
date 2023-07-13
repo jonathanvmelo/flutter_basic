@@ -27,19 +27,15 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  bool isDarkMode = false;
 
-
-  void toggleTheme(){
-    setState(() {
-      isDarkMode = !isDarkMode;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-     theme: isDarkMode ? DarkTheme.getTheme() : LightTheme.getTheme(),
+     theme: ThemeData(
+       brightness: Brightness.dark,
+
+     ),
       // initialRoute: "/",
       // routes: {
       //   '/': (context) => Splash(),
@@ -54,7 +50,7 @@ class _MyAppState extends State<MyApp> {
       //   '/exe7' : (context) => Exe07(),
       // },
       debugShowCheckedModeBanner: false,
-      home: Exe08(),
+      home: Exe07(),
     );
   }
 }
