@@ -31,7 +31,8 @@ class _Exe08State extends State<Exe08> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                   child: Text(
                     "Lista de tarefas",
                     style: TextStyle(
@@ -46,7 +47,6 @@ class _Exe08State extends State<Exe08> {
               child: TextField(
                 decoration: InputDecoration(
                   label: Text("Task"),
-                  border: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
                 ),
                 controller: _controller,
               ),
@@ -55,17 +55,7 @@ class _Exe08State extends State<Exe08> {
               height: 300,
               child: ListView.builder(
                 itemCount: _tasks.length,
-                itemBuilder: (context, index) {
-                  return CheckboxListTile(
-                    value: _tasks[index].isChecked,
-                    title: Text(_tasks[index].text),
-                    onChanged: (value) {
-                      setState(() {
-                        _tasks[index].isChecked = value!;
-                      });
-                    },
-                  );
-                },
+                itemBuilder: bulderList,
               ),
             ),
           ],
@@ -105,6 +95,38 @@ class _Exe08State extends State<Exe08> {
       ),
     );
   }
+
+  Widget? bulderList(context, index) {
+
+                return ListTile(
+                  leading: Checkbox(
+                    value: _tasks[index].isChecked,
+                    onChanged: (value) {
+                      setState(() {
+                        _tasks[index].isChecked = value!;
+                      });
+                    },
+                  ),
+                  title: Text(_tasks[index].text),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          setState(() {
+                          });
+                        },
+                        icon: Icon(Icons.edit),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          setState(() {
+                            _tasks.removeAt(index);                    });
+                        },
+                        icon: Icon(Icons.delete),
+                      ),
+                    ],
+                  ),
+                );
+              }
 }
-
-

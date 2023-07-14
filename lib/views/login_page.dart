@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.symmetric(vertical: 150, horizontal: 130),
+        padding: EdgeInsets.symmetric(vertical: 150, horizontal: 30),
         child: Form(
           key: formKey,
           child: Column(
