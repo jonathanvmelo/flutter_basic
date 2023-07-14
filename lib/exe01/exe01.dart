@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/componets/drawer/custom_drawer.dart';
 
 class Exe01 extends StatelessWidget {
 
@@ -8,6 +9,7 @@ class Exe01 extends StatelessWidget {
       appBar: AppBar(
         title: Text("Navbar projeto aula 2"),
       ),
+      endDrawer: CustomDrawer(),
       body: Center(
         child: Row(
           mainAxisSize: MainAxisSize.min,

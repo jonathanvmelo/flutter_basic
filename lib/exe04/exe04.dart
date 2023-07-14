@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../componets/drawer/custom_drawer.dart';
+
 class  Exe04 extends StatelessWidget {
 
   TextEditingController valor1 = TextEditingController();
@@ -12,6 +14,7 @@ class  Exe04 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
+      endDrawer: CustomDrawer(),
       body: Column(
         children: [
           TextField(

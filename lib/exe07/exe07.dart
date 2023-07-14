@@ -14,6 +14,8 @@ class _Exe07State extends State<Exe07> {
     GuestModel(name: "Barbara", image: "https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2017/01/formacao_sera-que-sou-uma-pessoa-que-tem-virtudes.jpg"),
     GuestModel(name: "Catarina", image: "https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2017/01/formacao_sera-que-sou-uma-pessoa-que-tem-virtudes.jpg")
   ];
+  
+  //var initialName = _guestList[0].name.toUpperCase();
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +39,7 @@ class _Exe07State extends State<Exe07> {
                   CircleAvatar(
                     radius: 25,
                     backgroundColor: Colors.transparent,
-                    backgroundImage: NetworkImage(_guestList[index].image),
+                    //backgroundImage: NetworkImage(_guestList[index].image),
                     child: Container(
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,

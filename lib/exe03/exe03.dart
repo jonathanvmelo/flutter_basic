@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_project/componets/drawer/custom_drawer.dart';
 
 class  Exe03 extends StatefulWidget {
 
@@ -20,6 +21,7 @@ class _Exe03State extends State<Exe03> {
       appBar: AppBar(
         title: Text("Exercicio 3"),
       ),
+      endDrawer: CustomDrawer(),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,

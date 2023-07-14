@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_project/componets/drawer/custom_drawer.dart';
+import 'package:flutter_project/exe10/exe10_pag2.dart';
 
 class  Exe10 extends StatelessWidget {
 
@@ -10,6 +12,7 @@ class  Exe10 extends StatelessWidget {
       appBar: AppBar(
         title: Text("Exercício 10"),
       ),
+      endDrawer: CustomDrawer(),
       body: Center(
         child: Container(
           child: Text("Página 1", style: TextStyle(fontSize: 20))),
@@ -18,12 +21,13 @@ class  Exe10 extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
           child: Row(
             children: [
-              IconButton(onPressed: () {
-
-              },icon: Icon(Icons.arrow_back)),
+              // IconButton(onPressed: () {
+              //
+              // },icon: Icon(Icons.arrow_back)),
               Spacer(flex: 1,),
               IconButton(onPressed: () {
-                Navigator.pushReplacementNamed(context, "/exe10pag2");
+                Navigator.of(context).pushNamed("/exe10pag2");
+
               },icon: Icon(Icons.arrow_forward)),
               // SizedBox(
               //   width: 150,

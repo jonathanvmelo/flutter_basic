@@ -20,6 +20,7 @@ class  Exe10Pag2 extends StatelessWidget {
           children: [
             IconButton(onPressed: () {
                 Navigator.of(context).pop();
+
             },icon: Icon(Icons.arrow_back)),
             Spacer(flex: 1,),
             IconButton(onPressed: () {

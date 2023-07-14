@@ -1,7 +1,17 @@
 
-class GuestModel{
-  String name = "";
-  String image = "";
+import 'package:flutter_project/exe07/guest_repository.dart';
 
-  GuestModel({required this.name, required this.image});
+class GuestModel {
+  String name;
+  String? image;
+  List<GuestRepository>? guests;
+
+  GuestModel({required this.name, this.image, this.guests});
+
+  _addGuest(String name, String? image){
+  }
+
+  removeGuest(){
+  }
+
 }

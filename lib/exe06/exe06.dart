@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_project/componets/CustomScaffold.dart';
 
 import '../componets/customAppBar.dart';
+import '../componets/drawer/custom_drawer.dart';
 
 class Exe06 extends StatelessWidget {
 
@@ -13,10 +14,12 @@ class Exe06 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScaffold(
-        title: "Exercício 6",
-        appBarColor: Color(0xFF021122),
-        child: Container(
+    return Scaffold(
+        endDrawer: CustomDrawer(),
+        appBar: AppBar(
+          title: Text("Exercício 6"),
+        ),
+        body: Container(
           //color: Color(0xFF021122),
          child: Center(
            child: Column(

@@ -11,6 +11,80 @@ class _Exe08State extends State<Exe08> {
 
   List<TaskModel> _tasks = [];
 
+  void deleteTask(int index) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("Deseja realmente deletar a tarefa?"),
+          content: TextFormField(
+            initialValue: _tasks[index].text,
+          ),
+          actions: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.teal)) ,
+              child: Text("Cancelar"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  _tasks.removeAt(index);
+                });
+                Navigator.pop(context);
+              },
+              style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.teal)) ,
+              child: Text("Deletar"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void updateTask(int index) {
+    String tempText = _tasks[index].text;
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(
+            "Editar Tarefa",
+          ),
+          content: TextFormField(
+            initialValue: tempText,
+            onChanged: (value) {
+              setState(() {
+                tempText = value;
+              });
+            },
+          ),
+          actions: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("Cancelar"),
+              style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.teal)),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  _tasks[index].text = tempText;
+                });
+                Navigator.pop(context);
+              },
+              child: Text("Salvar"),
+              style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.teal)),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +94,8 @@ class _Exe08State extends State<Exe08> {
           IconButton(
             onPressed: () {},
             icon: Icon(Icons.menu),
+
+
           ),
         ],
       ),
@@ -31,8 +107,7 @@ class _Exe08State extends State<Exe08> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Text(
                     "Lista de tarefas",
                     style: TextStyle(
@@ -43,7 +118,7 @@ class _Exe08State extends State<Exe08> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.only(left: 10, right: 10, bottom: 25),
               child: TextField(
                 decoration: InputDecoration(
                   label: Text("Task"),
@@ -55,7 +130,7 @@ class _Exe08State extends State<Exe08> {
               height: 300,
               child: ListView.builder(
                 itemCount: _tasks.length,
-                itemBuilder: bulderList,
+                itemBuilder: (context, index) => builderList(_tasks[index], index),
               ),
             ),
           ],
@@ -96,37 +171,48 @@ class _Exe08State extends State<Exe08> {
     );
   }
 
-  Widget? bulderList(context, index) {
+  Widget builderList(TaskModel model, index) {
+    TextStyle? txStyle = null;
 
-                return ListTile(
-                  leading: Checkbox(
-                    value: _tasks[index].isChecked,
-                    onChanged: (value) {
-                      setState(() {
-                        _tasks[index].isChecked = value!;
-                      });
-                    },
-                  ),
-                  title: Text(_tasks[index].text),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          setState(() {
-                          });
-                        },
-                        icon: Icon(Icons.edit),
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          setState(() {
-                            _tasks.removeAt(index);                    });
-                        },
-                        icon: Icon(Icons.delete),
-                      ),
-                    ],
-                  ),
-                );
-              }
+    if (model.isChecked) {
+      txStyle = TextStyle(
+        color: Colors.grey,
+        decoration: TextDecoration.lineThrough,
+      );
+    }
+
+    return ListTile(
+      leading: Checkbox(
+        value: model.isChecked,
+        onChanged: (value) {
+          setState(() {
+            _tasks[index].isChecked = (value ?? false);
+          });
+        },
+      ),
+      title: Text(
+        _tasks[index].text,
+        style: txStyle, // Aplica o estilo de risco quando a tarefa estiver concluída
+      ),
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          IconButton(
+            onPressed: () {
+              setState(() {
+                updateTask(index);
+              });
+            },
+            icon: Icon(Icons.edit),
+          ),
+          IconButton(
+            onPressed: () {
+              deleteTask(index);
+            },
+            icon: Icon(Icons.delete),
+          ),
+        ],
+      ),
+    );
+  }
 }

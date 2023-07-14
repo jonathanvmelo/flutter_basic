@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../componets/drawer/custom_drawer.dart';
+
 class Exe05 extends StatefulWidget {
 
 
@@ -13,8 +15,8 @@ class _Exe05State extends State<Exe05> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
       ),
+      endDrawer: CustomDrawer(),
       body: SingleChildScrollView(
         child: Center(
            child: Column(

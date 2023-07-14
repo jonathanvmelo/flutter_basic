@@ -15,6 +15,7 @@ import 'package:flutter_project/views/splash_page.dart';
 import 'exe05/exe05.dart';
 import 'exe06/exe06.dart';
 import 'exe07/exe07.dart';
+import 'exe07/exe07_sec_method.dart';
 import 'exe08/exe08.dart';
 import 'exe09/exe09_pag1.dart';
 
@@ -31,9 +32,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData(
-          brightness: Brightness.dark,
-        ),
+
         initialRoute: "/exe10",
         routes: {
           '/splash': (context) => Splash(),
@@ -45,7 +44,7 @@ class _MyAppState extends State<MyApp> {
           '/exe4' : (context) => Exe04(),
           '/exe5' : (context) => Exe05(),
           '/exe6' : (context) => Exe06(),
-          '/exe7' : (context) => Exe07(),
+          '/exe7' : (context) => Exe7SecMethod(),
           '/exe8' : (context) => Exe08(),
           '/exe9' : (context) => Exe09(),
           '/exe10' : (context) => Exe10(),
