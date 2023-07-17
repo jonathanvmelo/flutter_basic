@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_project/componets/drawer/side_menu_tile.dart';
+import 'package:flutter_project/componets/drawer/side_menu.dart';
 
 import 'info_card.dart';
 
@@ -16,15 +16,15 @@ class CustomDrawer extends StatelessWidget {
           child: SafeArea(
             child: Column(
               children: [
-                SizedBox(
-                  height: 20,
-                ),
-                InfoCard(name: "name", subTitle: "subTitle"),
-                Padding(
-                  padding: const EdgeInsets.only(left: 24, top: 32, bottom: 16),
-                  child: Text("Browse".toUpperCase(), style: Theme.of(context).textTheme.titleMedium!.copyWith(color: Colors.white38)),
-                ),
-                SideMenuTile(),
+                // SizedBox(
+                //   height: 20,
+                // ),
+                // //InfoCard(name: "name", subTitle: "subTitle"),
+                // Padding(
+                //   padding: const EdgeInsets.only(left: 24, top: 32, bottom: 16),
+                //   child: Text("Browse".toUpperCase(), style: Theme.of(context).textTheme.titleMedium!.copyWith(color: Colors.white38)),
+                // ),
+                // SideMenu(),
 
                 //   child: DrawerHeader(
                 //       child: ListView(

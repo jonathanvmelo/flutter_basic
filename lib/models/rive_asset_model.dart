@@ -1,25 +1,39 @@
-
+import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 
-class RiveAssetModel{
+class RiveAsset{
   final String artboard, stateMachineName, title, src;
-  late SMIBool? input;
+  late SMIBool input;
 
-  RiveAssetModel(this.src,{
+  RiveAsset(this.src,{
     required this.artboard,
     required this.stateMachineName,
     required this.title,
-    this.input});
+   });
 
   set setInput(SMIBool status){
     input = status;
   }
+
 }
 
-List<RiveAssetModel> bottomNavs = [
-  RiveAssetModel("assets/RiveAssets/icons.riv", artboard: "HOME", stateMachineName: "CHAT_Interactivity", title: "Chat"),
-  RiveAssetModel("assets/RiveAssets/icons.riv", artboard: "SEARCH", stateMachineName: "SEARCH_Interactivity", title: "Search"),
-  RiveAssetModel("assets/RiveAssets/icons.riv", artboard: "TIMER", stateMachineName: "TIMER_Interactivity", title: "Timer"),
-  RiveAssetModel("assets/RiveAssets/icons.riv", artboard: "BELL", stateMachineName: "BELL_Interactivity", title: "Notifications"),
-  RiveAssetModel("assets/RiveAssets/icons.riv", artboard: "USER", stateMachineName: "USER_Interactivity", title: "Profile"),
+List<RiveAsset> bottomNavs = [
+  RiveAsset("assets/RiveAssets/icons.riv", artboard: "CHAT", stateMachineName: "CHAT_Interactivity", title: "Chat"),
+  RiveAsset("assets/RiveAssets/icons.riv", artboard: "SEARCH", stateMachineName: "SEARCH_Interactivity", title: "Search"),
+  RiveAsset("assets/RiveAssets/icons.riv", artboard: "TIMER", stateMachineName: "TIMER_Interactivity", title: "Chat"),
+  RiveAsset("assets/RiveAssets/icons.riv", artboard: "BELL", stateMachineName: "BELL_Interactivity", title: "Notifications"),
+  RiveAsset("assets/RiveAssets/icons.riv", artboard: "USER", stateMachineName: "USER_Interactivity", title: "Profile")
 ];
+
+List<RiveAsset> sidemenus =[
+  RiveAsset("assets/RiveAssets/icons.riv", artboard: "HOME", stateMachineName: "HOME_interactivity", title: "Home"),
+  RiveAsset("assets/RiveAssets/icons.riv", artboard: "SEARCH", stateMachineName: "SEARCH_Interactivity", title: "Search"),
+  RiveAsset("assets/RiveAssets/icons.riv", artboard: "LIKE/STAR", stateMachineName: "STAR_Interactivity", title: "Favorites"),
+  RiveAsset("assets/RiveAssets/icons.riv", artboard: "CHAT", stateMachineName: "CHAT_Interactivity", title: "Help"),
+];
+
+List<RiveAsset> sidemenus2 =[
+  RiveAsset("assets/RiveAssets/icons.riv", artboard: "TIMER", stateMachineName: "TIMER_interactivity", title: "History"),
+  RiveAsset("assets/RiveAssets/icons.riv", artboard: "BELL", stateMachineName: "BELL_Interactivity", title: "Notification"),
+];
+

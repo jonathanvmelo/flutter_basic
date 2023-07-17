@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_project/componets/drawer/custom_drawer.dart';
-import 'package:flutter_project/exe10/exe10_pag2.dart';
+
+
 
 class  Exe10 extends StatelessWidget {
 
@@ -12,7 +12,6 @@ class  Exe10 extends StatelessWidget {
       appBar: AppBar(
         title: Text("Exercício 10"),
       ),
-      endDrawer: CustomDrawer(),
       body: Center(
         child: Container(
           child: Text("Página 1", style: TextStyle(fontSize: 20))),

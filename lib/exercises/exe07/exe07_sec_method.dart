@@ -26,7 +26,6 @@ class _Exe7SecMethodState extends State<Exe7SecMethod> {
       appBar: AppBar(
         title: Text("Exercício 7"),
       ),
-      endDrawer: CustomDrawer(),
       body: ListView.builder(
         itemCount: _guestList.length,
         itemBuilder: (context, index) {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/componets/drawer/custom_drawer.dart';
+
 
 class Exe02 extends StatelessWidget {
 
@@ -9,7 +9,6 @@ class Exe02 extends StatelessWidget {
      appBar: AppBar(
        title: Text("Exercicio 2"),
      ),
-      endDrawer: CustomDrawer(),
       body: ListView(
         children: [
           TextExe2("Texto 1", Colors.black12),

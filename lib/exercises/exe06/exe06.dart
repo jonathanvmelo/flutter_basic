@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project/componets/CustomScaffold.dart';
 
-import '../componets/customAppBar.dart';
-import '../componets/drawer/custom_drawer.dart';
 
 class Exe06 extends StatelessWidget {
 
@@ -15,7 +13,6 @@ class Exe06 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        endDrawer: CustomDrawer(),
         appBar: AppBar(
           title: Text("Exercício 6"),
         ),

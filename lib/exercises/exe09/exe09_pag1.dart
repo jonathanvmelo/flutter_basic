@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/exe09/exe09_pag2.dart';
+
+import 'exe09_pag2.dart';
+
 
 class Exe09 extends StatefulWidget {
   const Exe09({super.key});

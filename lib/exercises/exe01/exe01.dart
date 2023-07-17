@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/componets/drawer/custom_drawer.dart';
+import 'package:flutter_project/componets/custom_bottom_navigator_bar/custom_bottom_bar.dart';
+
 
 class Exe01 extends StatelessWidget {
 
@@ -7,16 +8,15 @@ class Exe01 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Navbar projeto aula 2"),
+        title: Text("Exercício 1"),
       ),
-      endDrawer: CustomDrawer(),
       body: Center(
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
 
               Text("Flutter é legal!", style: TextStyle(fontSize: 50,
-              color: Color.fromRGBO(150, 15, 15, 0.5),
+              color: Color.fromRGBO(43, 114, 69, 0.5019607843137255),
               decoration: TextDecoration.underline, fontWeight: FontWeight.bold),),
 
              Icon(Icons.add),
@@ -24,6 +24,7 @@ class Exe01 extends StatelessWidget {
           ],
         ),
       ),
+      // bottomNavigationBar: CustomBottomBar(),
     );
 
   }
