@@ -1,11 +1,11 @@
 class TaskModel {
   String text;
-  bool isChecked;
+  bool done = false;
 
-  TaskModel(this.text, this.isChecked);
+  TaskModel({ required this.text});
 
   @override
   String toString() {
-    return 'Task{text: $text, isChecked: $isChecked}';
+    return 'TaskModel{text: $text}';
   }
 }

@@ -177,11 +177,11 @@ class Course {
 List<Course> courses = [Course(title: "Flutter Básico", description: "Desenvolva componentes e layouts", iconSrc: "assets/icons/code.svg", bgColor: const Color(0xFF80A4FF)), Course(title: "Flutter Avançado", description: "Desenvolva componentes e layouts", iconSrc: "assets/icons/code.svg", bgColor: const Color(0xFF80A4FF))];
 
 List<Course> recentCourses = [
-  Course(title: "Flutter Básico", description: "Desenvolva componentes e layouts", iconSrc: "assets/icons/code.svg", bgColor: const Color(0xFF80A4FF)),
+  Course(title: "Flutter Básico", description: "Desenvolva componentes e layouts", iconSrc: "assets/icons/code.svg", bgColor: const Color(0xFF804aFF)),
   Course(title: "Orientação a Objetos", description: "Desenvolva componentes e layouts", iconSrc: "assets/icons/code.svg", bgColor: const Color(0xFF80A4FF)),
-  Course(title: "Dart Básico", description: "Desenvolva componentes e layouts", iconSrc: "assets/icons/code.svg", bgColor: const Color(0xFF80A4FF)),
+  Course(title: "Dart Básico", description: "Desenvolva componentes e layouts", iconSrc: "assets/icons/code.svg", bgColor: const Color(0xFF804aFF)),
   Course(title: "Flutter Avançado", description: "Desenvolva componentes e layouts", iconSrc: "assets/icons/code.svg", bgColor: const Color(0xFF80A4FF)),
-  Course(title: "Inglês", description: "Desenvolva componentes e layouts", iconSrc: "assets/icons/code.svg", bgColor: const Color(0xFF80A4FF))
+  Course(title: "Inglês", description: "Desenvolva componentes e layouts", iconSrc: "assets/icons/code.svg", bgColor: const Color(0xFF804aFF))
 ];
 
 class Exercise {

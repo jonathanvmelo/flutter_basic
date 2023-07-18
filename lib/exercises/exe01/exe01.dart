@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/componets/custom_bottom_navigator_bar/custom_bottom_bar.dart';
 
 
 class Exe01 extends StatelessWidget {
