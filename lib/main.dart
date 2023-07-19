@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_project/controllers/theme_controller.dart';
 import 'package:flutter_project/exercises/exe07/exe07.dart';
 import 'package:flutter_project/exercises/exe11/exe11_welcome.dart';
 import 'package:flutter_project/views/home/home_page.dart';
@@ -13,11 +14,9 @@ import 'exercises/exe03/exe03.dart';
 import 'exercises/exe04/exe04.dart';
 import 'exercises/exe05/exe05.dart';
 import 'exercises/exe06/exe06.dart';
-import 'exercises/exe07/exe07_sec_method.dart';
 import 'exercises/exe08/exe08.dart';
 import 'exercises/exe09/exe09_pag1.dart';
 import 'exercises/exe10/exe10.dart';
-import 'exercises/exe10/exe10_pag2.dart';
 import 'exercises/exe11/exe11.dart';
 
 void main() {
@@ -32,28 +31,33 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: '/login',
-      routes: {
-        '/login': (context) => LoginPage(),
-        '/register': (context) => RegisterPage(),
-        '/welcome': (context) => WelcomePage(),
-        '/home': (context) => HomePage(),
-        '/exe01': (context) => Exe01(),
-        '/exe02': (context) => Exe02(),
-        '/exe03': (context) => Exe03(),
-        '/exe04': (context) => Exe04(),
-        '/exe05': (context) => Exe05(),
-        '/exe06': (context) => Exe06(),
-        '/exe07': (context) => Exe07(),
-        '/exe08': (context) => Exe08(),
-        '/exe09': (context) => Exe09(),
-        '/exe10': (context) => Exe10(),
-        '/exe11': (context) => Exe11(),
-        '/exe11_welcome': (context) => Exe11Welcome(),
-        '/exe08': (context) => Exe08(),
-      },
-      debugShowCheckedModeBanner: false,
+    return AnimatedBuilder(builder: (context, child) {
+      return MaterialApp(
+        theme: ThemeData(
+          brightness: ThemeController.instance.isDarkTheme ? Brightness.dark : Brightness.light,
+        ),
+        initialRoute: '/home',
+        routes: {
+          '/login': (context) => LoginPage(),
+          '/register': (context) => RegisterPage(),
+          '/welcome': (context) => WelcomePage(),
+          '/home': (context) => HomePage(),
+          '/exe01': (context) => Exe01(),
+          '/exe02': (context) => Exe02(),
+          '/exe03': (context) => Exe03(),
+          '/exe04': (context) => Exe04(),
+          '/exe05': (context) => Exe05(),
+          '/exe06': (context) => Exe06(),
+          '/exe07': (context) => Exe07(),
+          '/exe08': (context) => Exe08(),
+          '/exe09': (context) => Exe09(),
+          '/exe10': (context) => Exe10(),
+          '/exe11': (context) => Exe11(),
+          '/exe11_welcome': (context) => Exe11Welcome(),
+        },
+        debugShowCheckedModeBanner: false,
+      );
+    }, animation: ThemeController.instance,
     );
   }
 }
