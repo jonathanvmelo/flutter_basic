@@ -10,10 +10,4 @@ class GuestModel {
 
   GuestModel({required this.name, this.image, this.guests});
 
-  _addGuest(String name, String? image){
-  }
-
-  removeGuest(){
-  }
-
 }

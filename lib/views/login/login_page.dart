@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project/controllers/login_controller.dart';
 
+import '../../widgets/custom_text_field.dart';
+
 class LoginPage extends StatefulWidget {
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -10,7 +12,7 @@ class _LoginPageState extends State<LoginPage> {
   final formKey = GlobalKey<FormState>();
   bool _hidePass = true;
   bool inLouder = false;
-  LoginController controller = LoginController();
+  final LoginController controller = LoginController();
 
   TextEditingController nameController = TextEditingController();
   TextEditingController passController = TextEditingController();
@@ -19,6 +21,11 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(begin: Alignment.centerLeft, colors: [
+          Colors.teal,
+          Colors.black87,
+        ])),
         padding: EdgeInsets.symmetric(vertical: 100, horizontal: 30),
         child: Form(
           key: formKey,
@@ -26,51 +33,40 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Expanded(
-                child: Icon(Icons.people,
-                    size: MediaQuery.of(context).size.height * 0.1),
+                child: Icon(Icons.people, size: MediaQuery.of(context).size.height * 0.1),
               ),
               SizedBox(
                 height: 35,
               ),
               Expanded(
-                child: TextFormField(
-                  controller: nameController,
-                  decoration: const InputDecoration(
-                    suffixIcon: Icon(Icons.person),
-                    labelText: 'Name',
-                  ),
-                  validator: (String? value) {
-                    return (value != null && value.contains('@'))
-                        ? 'Do not use the @ char.'
-                        : null;
-                  },
-                ),
-              ),
+                  child: CustomTextField(
+                suffixIcon: Icon(Icons.person),
+                textLabel: "Nome",
+                validator: (value) {
+                  if (value!.trim().isEmpty) {
+                    return "Erro";
+                  }
+                },
+                controller: nameController,
+              )),
               SizedBox(
                 height: 35,
               ),
               Expanded(
-                child: TextFormField(
-                  controller: passController,
-                  decoration: InputDecoration(
-                      labelText: "Password",
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                            _hidePass ? Icons.visibility : Icons.visibility_off),
-                        onPressed: () {
-                          setState(() {
-                            _hidePass = !_hidePass;
-                          });
-                        },
-                      )),
-                  obscureText: _hidePass,
-                  validator: (value) {
-                    return (value!.isEmpty && value.contains('@'))
-                        ? 'Do not use the @ char.'
-                        : null;
-                  },
-                ),
-              ),
+                  child: CustomTextField(
+                controller: passController,
+                textLabel: "Password",
+                suffixIcon: Icon(_hidePass ? Icons.visibility : Icons.visibility_off),
+                validator: (value) {
+                  return (value!.isEmpty && value.contains('@')) ? 'Do not use the @ char.' : null;
+                },
+                onPressed: () {
+                  setState(() {
+                    _hidePass = !_hidePass;
+                  });
+                },
+                obscureText: _hidePass,
+              )),
               SizedBox(height: 35),
               Row(
                 children: [
@@ -100,7 +96,10 @@ class _LoginPageState extends State<LoginPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.facebook, color: Colors.blueAccent,),
+                  Icon(
+                    Icons.facebook,
+                    color: Colors.blueAccent,
+                  ),
                   Icon(Icons.gpp_good_outlined)
                 ],
               ),
@@ -112,17 +111,15 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("Não tem conta?"),
-                  TextButton(onPressed: (){}, child: TextButton(
-                      onPressed: (){
-                        Navigator.of(context).pushNamed("/register");
-                      },
-                      child: Text("Cadastre-se")
-                  )
-                  ),
+                  TextButton(
+                      onPressed: () {},
+                      child: TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pushNamed("/register");
+                          },
+                          child: Text("Cadastre-se"))),
                 ],
               )
-
-
             ],
           ),
         ),

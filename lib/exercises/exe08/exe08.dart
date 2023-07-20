@@ -11,12 +11,21 @@ class _Exe08State extends State<Exe08> {
 
   List<TaskModel> _tasks = [];
 
+  bool? inLouder = false;
+
+  Future<bool> deleting() async{
+    inLouder = true;
+    await Future.delayed(Duration(seconds: 2));
+    inLouder = false;
+    return inLouder! ? inLouder = false : inLouder = true ;
+  }
+
   void deleteTask(int index) {
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text("Deseja realmente deletar a tarefa?"),
+          title: const Text("Deseja realmente deletar a tarefa?"),
           content: TextFormField(
             initialValue: _tasks[index].text,
           ),
@@ -25,8 +34,8 @@ class _Exe08State extends State<Exe08> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.teal)) ,
-              child: Text("Cancelar"),
+              style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.teal)) ,
+              child: const Text("Cancelar"),
             ),
             ElevatedButton(
               onPressed: () {
@@ -35,8 +44,8 @@ class _Exe08State extends State<Exe08> {
                 });
                 Navigator.pop(context);
               },
-              style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.teal)) ,
-              child: Text("Deletar"),
+              style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.teal)) ,
+              child: const Text("Deletar"),
             ),
           ],
         );
@@ -50,7 +59,7 @@ class _Exe08State extends State<Exe08> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text(
+          title: const Text(
             "Editar Tarefa",
           ),
           content: TextFormField(
@@ -66,8 +75,8 @@ class _Exe08State extends State<Exe08> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text("Cancelar"),
-              style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.teal)),
+              child: const Text("Cancelar"),
+              style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.teal)),
             ),
             ElevatedButton(
               onPressed: () {
@@ -76,8 +85,8 @@ class _Exe08State extends State<Exe08> {
                 });
                 Navigator.pop(context);
               },
-              child: Text("Salvar"),
-              style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.teal)),
+              child: const Text("Salvar"),
+              style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.teal)),
             ),
           ],
         );
@@ -89,23 +98,23 @@ class _Exe08State extends State<Exe08> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Exercício 8"),
+        title: const Text("Exercício 8"),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.menu),
+            icon: const Icon(Icons.menu),
           ),
         ],
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
         child: Column(
           children: [
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  padding: EdgeInsets.symmetric(vertical: 20),
                   child: Text(
                     "Lista de tarefas",
                     style: TextStyle(
@@ -117,11 +126,26 @@ class _Exe08State extends State<Exe08> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 10, right: 10, bottom: 25),
-              child: TextField(
-                decoration: InputDecoration(
-                  label: Text("Task"),
-                ),
-                controller: _controller,
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Expanded(
+                    child: TextField(
+                      decoration: const InputDecoration(
+                        label: Text("Task"),
+                      ),
+                      controller: _controller,
+                    ),
+                  ),
+                  IconButton(onPressed: () {
+                    if(!_controller.text.isEmpty){
+                      setState(() {
+                        _tasks.add(TaskModel(text: _controller.text));
+                      });
+                      _controller.clear();
+                    }
+                  }, icon: Icon(Icons.add))
+                ],
               ),
             ),
             Container(
@@ -138,18 +162,7 @@ class _Exe08State extends State<Exe08> {
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          FloatingActionButton(
-            onPressed: () {
-              if (_controller.text.length > 0) {
-                setState(() {
-                  _tasks.add(TaskModel(text: _controller.text));
-                });
-                _controller.clear();
-              }
-            },
-            child: Icon(Icons.add),
-          ),
-          SizedBox(
+          const SizedBox(
             height: 5,
           ),
           FloatingActionButton(
@@ -159,10 +172,10 @@ class _Exe08State extends State<Exe08> {
               });
               _controller.clear();
             },
-            child: Icon(
+            tooltip: "Delete toda a lista ",
+            child: const Icon(
               Icons.delete,
             ),
-            tooltip: "Delete toda a lista ",
           ),
         ],
       ),
@@ -173,7 +186,7 @@ class _Exe08State extends State<Exe08> {
     TextStyle? txStyle = null;
 
     if (model.done) {
-      txStyle = TextStyle(
+      txStyle = const TextStyle(
         color: Colors.grey,
         decoration: TextDecoration.lineThrough,
       );
@@ -201,13 +214,13 @@ class _Exe08State extends State<Exe08> {
                 updateTask(index);
               });
             },
-            icon: Icon(Icons.edit),
+            icon: const Icon(Icons.edit),
           ),
           IconButton(
             onPressed: () {
               deleteTask(index);
             },
-            icon: Icon(Icons.delete),
+            icon: const Icon(Icons.delete),
           ),
         ],
       ),

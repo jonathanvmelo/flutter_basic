@@ -29,13 +29,13 @@ class _Exe7SecMethodState extends State<Exe7SecMethod> {
         itemCount: _guestList.length,
         itemBuilder: (context, index) {
           return Padding(padding: EdgeInsets.symmetric(vertical: 3),
-              child: _builGuestList(_guestList[index], index));
+              child: _buildGuestList(_guestList[index], index));
         },
       ),
     );
   }
 
-  _builGuestList(GuestModel model, index) {
+  _buildGuestList(GuestModel model, index) {
 
     RandomColor _randomColor = RandomColor();
     Color _color = _randomColor.randomColor(colorBrightness: ColorBrightness.light);

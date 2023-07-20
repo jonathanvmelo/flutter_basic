@@ -16,9 +16,7 @@ class _Exe12State extends State<Exe12> {
   ];
 
   Future<bool?> deleted() async {
-    var personRes = await Navigator.of(context).push(
-      MaterialPageRoute(builder: (context)=> Exe12Confirmation())
-    );
+    var personRes = await Navigator.of(context).push(MaterialPageRoute(builder: (context) => Exe12Confirmation()));
     if (!mounted) {
       return null;
     }
@@ -31,41 +29,28 @@ class _Exe12State extends State<Exe12> {
       appBar: AppBar(
         title: Text("Exercício 12"),
       ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-              child: ListView.builder(
-                itemCount: person.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    leading: Icon(Icons.fastfood),
-                    title: Text(person[index].name),
-                    trailing: IconButton(icon: Icon(Icons.delete),
-                    onPressed: (){
-
-                        deleted().then((value) {
-                          if(value == null){
-                            return;
-                          }else{
-                            setState(() {
-                              person.removeAt(index);
-                            });
-                          }
-
-                        });
-
-                      });
-                    },
-                    ),
-                  );
-                },
-              ),
+      body: ListView.builder(
+        itemCount: person.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            leading: Icon(Icons.person_2_outlined),
+            title: Text(person[index].name),
+            trailing: IconButton(
+              icon: Icon(Icons.delete),
+              onPressed: () {
+                deleted().then((value) {
+                  if(value == null){
+                    return;
+                  }else{
+                    setState(() {
+                      person.removeAt(index);
+                    });
+                  }
+                });
+              },
             ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }

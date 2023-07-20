@@ -20,7 +20,7 @@ class Exe12Confirmation extends StatelessWidget {
             }, child: Text("Sim")),
             SizedBox(height: 50,),
             ElevatedButton(onPressed: () {
-                Navigator.of(context).pop(false);
+                Navigator.of(context).pop();
             }, child: Text("Não"))
           ],
         ),
