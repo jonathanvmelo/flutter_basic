@@ -98,12 +98,20 @@ class _Exe08State extends State<Exe08> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Exercício 8"),
+        title:  Row(
+          children: [
+            Icon(Icons.menu, color: Color(0xFF3A3A3A), size: 30,),
+           Container(
+             height: 40,
+             width: 40,
+             child: ClipRect(child: Image.asset("assets/avatars/Eu.jpeg"),),
+           )
+
+          ],
+        ),
+        backgroundColor: Color(0xFFEEEFF5),
+        elevation: 2,
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.menu),
-          ),
         ],
       ),
       body: Container(

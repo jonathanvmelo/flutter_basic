@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
         theme: ThemeData(
           brightness: ThemeController.instance.isDarkTheme ? Brightness.dark : Brightness.light,
         ),
-        initialRoute: '/home',
+        initialRoute: '/exe08',
         routes: {
           '/login': (context) => LoginPage(),
           '/register': (context) => RegisterPage(),
