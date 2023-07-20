@@ -131,9 +131,9 @@ class _HomePageState extends State<HomePage> {
                     ),
                     ListTile(
                       trailing: Icon(Icons.arrow_forward),
-                      title: Text("Exercicio 11"),
+                      title: Text("Exercicio 12"),
                       onTap: () {
-                        Navigator.of(context).pushNamed("/exe11");
+                        Navigator.of(context).pushNamed("/exe12");
                       },
                     ),
                     ListTile(
