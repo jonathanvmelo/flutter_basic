@@ -10,7 +10,10 @@ class Exe13Counter extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Text("$counter", style: TextStyle(
-        color:counter >= 0 ? Colors.green : Colors.red ),);
+      fontSize: 48,
+        color:counter < 0 ? Colors.red : counter == 0 ?  Colors.black : Colors.green),
+
+    );
   }
 }
 

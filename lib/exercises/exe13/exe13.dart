@@ -18,21 +18,33 @@ class _Exe13State extends State<Exe13> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Exe13Counter(counter),
+            Container(
+                width: 100,
+                height: 60,
+                color: Colors.black12,
+                foregroundDecoration: BoxDecoration(
+                  border: Border.all(color: Colors.white24, width: 2)
+                ),
+
+                child: Center(child: Exe13Counter(counter))),
            SizedBox(height: 20,),
            Row(
              mainAxisAlignment: MainAxisAlignment.center,
              children: [
-               IconButton(onPressed: () {
-                 setState(() {
-                   counter++;
-                 });
-               }, icon: Icon(Icons.add)),
-               IconButton(onPressed: () {
+               FloatingActionButton(child: Icon(Icons.add),
+                   onPressed: (){
+                     setState(() {
+                       counter++;
+                     });
+                   }),
+               SizedBox(width: 18,),
+               FloatingActionButton(child: Icon(Icons.remove),
+                   onPressed: (){
                  setState(() {
                    counter--;
                  });
-               }, icon: Icon(Icons.remove))
+               })
+
              ],
            )
           ],

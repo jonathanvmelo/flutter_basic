@@ -5,11 +5,12 @@ import 'package:flutter_project/exercises/exe07/exe07.dart';
 import 'package:flutter_project/exercises/exe11/exe11_welcome.dart';
 import 'package:flutter_project/exercises/exe12/exe12_confirmation.dart';
 import 'package:flutter_project/exercises/exe13/exe13.dart';
-import 'package:flutter_project/views/home/home_page.dart';
-import 'package:flutter_project/views/login/login_page.dart';
-import 'package:flutter_project/views/login/register_page.dart';
-import 'package:flutter_project/views/login/welcome_page.dart';
-import 'package:flutter_project/views/splash_page/splash_page.dart';
+import 'package:flutter_project/additional_exercises/home_card.dart';
+import 'package:flutter_project/pages/home/home_page.dart';
+import 'package:flutter_project/pages/login/login_page.dart';
+import 'package:flutter_project/pages/login/register_page.dart';
+import 'package:flutter_project/pages/login/welcome_page.dart';
+import 'package:flutter_project/additional_exercises/home_app_bar.dart';
 import 'exercises/exe01/exe01.dart';
 import 'exercises/exe02/exe02.dart';
 import 'exercises/exe03/exe03.dart';
@@ -40,12 +41,14 @@ class _MyAppState extends State<MyApp> {
         theme: ThemeData(
           brightness: ThemeController.instance.isDarkTheme ? Brightness.dark : Brightness.light,
         ),
-        initialRoute: '/home',
+        initialRoute: '/home_card',
         routes: {
           '/login': (context) => LoginPage(),
           '/register': (context) => RegisterPage(),
           '/welcome': (context) => WelcomePage(),
           '/home': (context) => HomePage(),
+          '/home_card': (context) => HomeCard(),
+          '/home_app_bar': (context) => HomeAppBar(),
           '/exe01': (context) => Exe01(),
           '/exe02': (context) => Exe02(),
           '/exe03': (context) => Exe03(),
@@ -62,6 +65,7 @@ class _MyAppState extends State<MyApp> {
           '/exe12_confirmation': (context) => Exe12Confirmation(),
           '/exe13': (context) => Exe13(),
           '/exe14': (context) => Exe14(),
+
         },
         debugShowCheckedModeBanner: false,
       );

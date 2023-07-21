@@ -1,9 +1,10 @@
 
 class ProductModel{
-  String url;
+
   String name;
+  String urlImage;
   String description;
   double value;
 
-  ProductModel({required this.url, required this.name, required this.description,  required this.value});
+  ProductModel({ required this.name, required this.urlImage, required this.description,  required this.value});
 }
