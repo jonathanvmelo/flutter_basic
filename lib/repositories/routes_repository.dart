@@ -16,6 +16,8 @@ class RouteRepository  {
     DrawerTileItem(title: "Exercício 10", icon: Icons.arrow_forward, route: "/exe10"),
     DrawerTileItem(title: "Exercício 11", icon: Icons.arrow_forward, route: "/exe11"),
     DrawerTileItem(title: "Exercício 12", icon: Icons.arrow_forward, route: "/exe12"),
+    DrawerTileItem(title: "Exercício 13", icon: Icons.arrow_forward, route: "/exe13"),
+    DrawerTileItem(title: "Exercício 14", icon: Icons.arrow_forward, route: "/exe14"),
   ];
 
 }

@@ -3,20 +3,29 @@ import 'package:flutter_project/models/User.dart';
 import '../../controllers/theme_controller.dart';
 
 class UserAccountDrawer extends StatelessWidget {
-  late final User userModel;
+  final User userModel;
 
   UserAccountDrawer({required this.userModel});
+
+  Widget _buildAvatarImage() {
+    String initialLetterName = userModel.name[0];
+
+    return CircleAvatar(
+      backgroundImage:
+          userModel.imageUrl != null ? NetworkImage(userModel.imageUrl!) : null,
+      backgroundColor: ThemeController.instance.isDarkTheme
+          ? Colors.black12
+          : Colors.black12,
+      child: userModel.imageUrl == null ? Text(initialLetterName) : null,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    String initialLetterName = userModel.name[0];
     return UserAccountsDrawerHeader(
       accountName: Text(userModel.name),
       accountEmail: Text(userModel.email),
-      currentAccountPicture: CircleAvatar(
-        backgroundImage: userModel.imageUrl!.isNotEmpty ? NetworkImage(userModel.imageUrl!) : null,
-        backgroundColor: ThemeController.instance.isDarkTheme ? Colors.black12 : Colors.black12,
-        child: userModel.imageUrl!.isNotEmpty ? null : Text(initialLetterName),
-      ),
+      currentAccountPicture: _buildAvatarImage(),
       otherAccountsPictures: [
         Switch(
           value: ThemeController.instance.isDarkTheme,

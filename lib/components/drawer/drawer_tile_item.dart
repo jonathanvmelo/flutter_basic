@@ -10,7 +10,6 @@ class DrawerTileItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(icon),
       title: Text(title),
       trailing: Icon(icon),
       onTap: ()=> Navigator.of(context).pushNamed(route),

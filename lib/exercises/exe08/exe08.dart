@@ -104,9 +104,8 @@ class _Exe08State extends State<Exe08> {
            Container(
              height: 40,
              width: 40,
-             child: ClipRect(child: Image.asset("assets/avatars/Eu.jpeg"),),
+             child: ClipRect(child: Image.asset("assets/Eu.jpeg"),),
            )
-
           ],
         ),
         backgroundColor: Color(0xFFEEEFF5),

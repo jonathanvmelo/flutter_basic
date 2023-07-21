@@ -4,6 +4,7 @@ import 'package:flutter_project/controllers/theme_controller.dart';
 import 'package:flutter_project/exercises/exe07/exe07.dart';
 import 'package:flutter_project/exercises/exe11/exe11_welcome.dart';
 import 'package:flutter_project/exercises/exe12/exe12_confirmation.dart';
+import 'package:flutter_project/exercises/exe13/exe13.dart';
 import 'package:flutter_project/views/home/home_page.dart';
 import 'package:flutter_project/views/login/login_page.dart';
 import 'package:flutter_project/views/login/register_page.dart';
@@ -20,6 +21,7 @@ import 'exercises/exe09/exe09_pag1.dart';
 import 'exercises/exe10/exe10.dart';
 import 'exercises/exe11/exe11.dart';
 import 'exercises/exe12/exe12.dart';
+import 'exercises/exe14/Exe14.dart';
 
 void main() {
   runApp(MyApp());
@@ -38,7 +40,7 @@ class _MyAppState extends State<MyApp> {
         theme: ThemeData(
           brightness: ThemeController.instance.isDarkTheme ? Brightness.dark : Brightness.light,
         ),
-        initialRoute: '/exe08',
+        initialRoute: '/home',
         routes: {
           '/login': (context) => LoginPage(),
           '/register': (context) => RegisterPage(),
@@ -58,6 +60,8 @@ class _MyAppState extends State<MyApp> {
           '/exe11_welcome': (context) => Exe11Welcome(),
           '/exe12': (context) => Exe12(),
           '/exe12_confirmation': (context) => Exe12Confirmation(),
+          '/exe13': (context) => Exe13(),
+          '/exe14': (context) => Exe14(),
         },
         debugShowCheckedModeBanner: false,
       );
