@@ -39,11 +39,10 @@ dependencies:
   badges: ^3.1.1
   intl:
 
-  shared_preferences: ^2.2.0
-
   flutter_svg: ^1.1.6
 
   random_color: ^1.0.5
+  shared_preferences: ^2.2.0
 
 dev_dependencies:
   flutter_test:

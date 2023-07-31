@@ -11,17 +11,19 @@ class Splash extends StatefulWidget {
 
 class _SplashState extends State<Splash> {
 
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(Duration(seconds: 1)).then((__) => Navigator.of(context).pushReplacementNamed('/login'));
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   Future.delayed(Duration(seconds: 5)).then((__) => Navigator.of(context).pushReplacementNamed('/login'));
+  // }
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold(
 
-      child: Center(
-        child: CircularProgressIndicator(),
+      body: Container(
+        height: 200,
+        width: 200,
+        color: Colors.deepPurpleAccent,
       ),
     );
   }
